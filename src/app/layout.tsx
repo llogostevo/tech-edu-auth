@@ -16,6 +16,7 @@ import Footer from '../components/Footer'
 
 export const siteFont = Roboto_Mono({ subsets: ['latin'], weight: ['400'] })
 export const logoFont = Fira_Mono({ subsets: ['latin'], weight: ['400'] })
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Progress Bytes',
