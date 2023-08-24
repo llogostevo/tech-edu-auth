@@ -3,8 +3,9 @@ import { cookies } from 'next/headers'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { usersCheck } from '@/lib/database.queries'
+import { usersCheck } from '@/lib/users'
 import Comments from '@/components/Comments'
+import CommentForm from '@/components/CommentForm'
 
 export const dynamic = 'force-dynamic'
 
@@ -15,7 +16,7 @@ export default async function IndividualBlogPost({ params }: { params: { slug: s
     const supabase = createServerComponentClient({ cookies })
 
     //   GET THE POST BY SLUG
-    // query to get hte blogs and profile data from the database
+    // query to get the blogs and profile data from the database
     const { data: blogs } = await supabase.from('blogs').select(`
   blog_id,
   title,
@@ -36,11 +37,10 @@ export default async function IndividualBlogPost({ params }: { params: { slug: s
     const post = blogs[0];
 
     const user = await usersCheck();
-
     return (
 
         <main key={post.blog_id} className="flex flex-col items-center	">
-            <div className='sm:w-full md:w-1/1 lg:w-1/1 xl:w-1/2 px-3 md:px-20 gap-6 flex flex-col justify-center items-center border bg-[#fafef] shadow rounded-lg mb-10'>
+            <div className='sm:w-full md:w-1/1 lg:w-1/1 xl:w-8/12 px-3 md:px-20 gap-6 flex flex-col justify-center items-center border bg-[#fafef] shadow rounded-lg mb-10'>
                 <div className='mt-8'>
                     <h1 className='text-4xl md:text-5xl font-bold'>{post?.title}</h1>
                 </div>
@@ -77,7 +77,14 @@ export default async function IndividualBlogPost({ params }: { params: { slug: s
                     </svg>{' '}Return to BlogBytes</Link>
             </div>
 
-            {user ?  <Comments blogId={post.blog_id} />  : <></>}
+            {user ?
+            <>
+            <Comments blogId={post.blog_id} />  
+            {/* @ts-ignore */}
+            <CommentForm slug={`${post.blog_id}`} user_id={`${user.id}`} email={`${user.email}`}/>
+            </>
+            : <></>}
+
 
             
         </main>

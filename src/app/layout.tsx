@@ -1,6 +1,4 @@
-import LogoutButton from '../components/LogoutButton'
 import './globals.css'
-import Link from 'next/link'
 
 import Header from '../components/Header'
 import type { Metadata } from 'next'

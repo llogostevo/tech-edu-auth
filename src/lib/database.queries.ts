@@ -4,14 +4,7 @@ import { cookies } from "next/headers";
 
 type Topic = Database["public"]["Tables"]["topics"]["Row"];
 
-export async function usersCheck() {
-  const supabase = createServerComponentClient({ cookies })
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-  return user;
-}
 
 
 

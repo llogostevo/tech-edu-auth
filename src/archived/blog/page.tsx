@@ -26,7 +26,8 @@ export  default function Blogs() {
     author_id,
     profiles(profile_id,
     first_name,
-    last_name)
+    last_name, 
+    type)
   `) 
   console.log(data)  
   if (error) {
@@ -45,7 +46,7 @@ export  default function Blogs() {
     <section className="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
       {/* Blog Card */}
       {blogs.map(blog => (
-        <div key={blog.blog_id} className="bg-white flex flex-col gap-2 p-6 rounded-lg shadow-lg mb-4"> {/* added mb-4 for some spacing between blog cards */}
+        <div key={blog.blog_id} className="bg-white flex flex-col gap-2 p-6 rounded-lg shadow-lg mb-4"> 
           <h2 className="text-3xl font-semibold mb-4">{blog.title}</h2>
           {/* <p>{blog.img_path}</p> */}
           {/* <p className="text-gray-700">{blog.content}</p> */}
