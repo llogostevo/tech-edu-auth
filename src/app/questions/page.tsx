@@ -1,7 +1,7 @@
 // Database Queries
-import { allUnitTopics } from "../lib/database.queries";
+import { allUnitTopics } from "@/lib/database.queries";
 // Database Types
-import { UnitTopics } from "../lib/database.types";
+import { UnitTopics } from "@/lib/database.types";
 
 export default async function Questions() {
 
