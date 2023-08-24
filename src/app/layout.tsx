@@ -1,11 +1,11 @@
-import LogoutButton from '@/components/LogoutButton'
+import LogoutButton from '../components/LogoutButton'
 import './globals.css'
 import Link from 'next/link'
 
-import Header from '@/components/Header'
+import Header from '../components/Header'
 import type { Metadata } from 'next'
 import { Inter, Roboto_Mono, Fira_Mono } from 'next/font/google'
-import Footer from '@/components/Footer'
+import Footer from '../components/Footer'
 
 // import { Analytics } from '@vercel/analytics/react'
 

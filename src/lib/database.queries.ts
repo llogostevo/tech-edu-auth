@@ -1,4 +1,4 @@
-import { Database, UnitTopics } from "@/lib/database.types";
+import { Database, UnitTopics } from "../lib/database.types";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 

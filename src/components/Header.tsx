@@ -2,7 +2,7 @@ import Link from "next/link";
 import Logo from "./Logo";
 import Image from "next/image";
 import { logoFont, siteFont } from "@/app/layout";
-import { usersCheck } from '@/lib/database.queries';
+import { usersCheck } from '../lib/database.queries';
 import LogoutButton from "./LogoutButton";
 
 export default async function Header() {
@@ -23,31 +23,38 @@ export default async function Header() {
                     <Link className="mx-2 border-b-2 border-transparent hover:border-secondaryColor block" href="/questions">ByteNow</Link>
 
                     {/* visible only to non logged in */}
-                    <Link className="mx-2 border-b-2 border-transparent hover:border-secondaryColor block" href="/#BlogBytes">BlogBytes</Link>
+                    <Link className="mx-2 border-b-2 border-transparent hover:border-secondaryColor block" href="/blog">BlogBytes</Link>
                 </nav>
             </div>
-                <Image
-                        src="logo.png"
-                        width={90}
-                        height={90}
-                        alt="Progress Icon"
-                        className="mr-20"
-                    />
+               <div className="flex flex-row gap-5">
+                
                 <div>
-            {user ? (
-              <div className="flex items-center gap-4">
-                {user.email}!
-                <LogoutButton />
-              </div>
-            ) : (
-              <Link
-                href="/login"
-                className="py-2 px-4 rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
-              >
-                Login
-              </Link>
-            )}
-          </div>
+                <Image
+                        src="/logo.png"
+                        width={30}
+                        height={30}
+                        alt="Progress Icon"
+                        className=""
+                    />
+                </div>
+
+                <div>
+                {user ? (
+                  <div className="flex items-center gap-4">
+                    {user.email}!
+                    <LogoutButton />
+                  </div>
+                ) : (
+                  <Link
+                    href="/login"
+                    className="py-2 px-4 rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
+                  >
+                    Login
+                  </Link>
+                )}
+                </div>
+                </div>
+          
         </div>
 
     )
