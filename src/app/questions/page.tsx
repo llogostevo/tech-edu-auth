@@ -1,6 +1,5 @@
-// Database Queries
+import StreakTracker from "@/components/StreakTracker";
 import { allUnitTopics } from "@/lib/database.queries";
-// Database Types
 import { UnitTopics } from "@/lib/database.types";
 
 export default async function Questions() {
@@ -35,6 +34,7 @@ export default async function Questions() {
                 </select>
                 <input type="submit" value="Submit" />
             </form> */}
+            <StreakTracker/>
         </div>
     );
 }
