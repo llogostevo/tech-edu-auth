@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
 
-export default async function ServerComponent() {
+export default async function BlogPostsPage() {
   // Create a Supabase client configured to use cookies
   const supabase = createServerComponentClient({ cookies })
 

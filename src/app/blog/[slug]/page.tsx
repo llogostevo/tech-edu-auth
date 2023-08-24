@@ -3,11 +3,13 @@ import { cookies } from 'next/headers'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usersCheck } from '@/lib/database.queries'
+import Comments from '@/components/Comments'
 
 export const dynamic = 'force-dynamic'
 
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
+export default async function IndividualBlogPost({ params }: { params: { slug: string } }) {
 
     // Create a Supabase client configured to use cookies
     const supabase = createServerComponentClient({ cookies })
@@ -32,6 +34,8 @@ export default async function BlogPost({ params }: { params: { slug: string } })
 
     // there should only be one post returned
     const post = blogs[0];
+
+    const user = await usersCheck();
 
     return (
 
@@ -73,8 +77,9 @@ export default async function BlogPost({ params }: { params: { slug: string } })
                     </svg>{' '}Return to BlogBytes</Link>
             </div>
 
-            {/* @ts-ignore */}
-            {/* <Comments slug={post.blog_id} /> */}
+            {user ?  <Comments blogId={post.blog_id} />  : <></>}
+
+            
         </main>
 
 
