@@ -16,6 +16,8 @@ import Footer from '../components/Footer'
 
 export const siteFont = Roboto_Mono({ subsets: ['latin'], weight: ['400'] })
 export const logoFont = Fira_Mono({ subsets: ['latin'], weight: ['400'] })
+
+// THIS IS NEEDED DUE TO AN ISSUE WITH VERCEL UPLOAD AND COOKIES
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
