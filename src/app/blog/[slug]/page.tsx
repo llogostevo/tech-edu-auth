@@ -10,6 +10,39 @@ import CommentForm from '@/components/CommentForm'
 export const dynamic = 'force-dynamic'
 
 
+// NOT SURE IF THIS IS THE CORRECT WAY TO DO THIS???
+
+// export async function generateStaticParams({ params }: { params: { slug: string } }) {
+//     const supabase = createServerComponentClient({ cookies })
+
+//     const { data: blogs } = await supabase.from('blogs').select(`
+//         blog_id,
+//         title,
+//         content,
+//         img_path,
+//         created_at,
+//         author_id,
+//         profiles(profile_id,
+//         first_name,
+//         last_name)
+//         `).eq('blog_id', `${params.slug}`)
+        
+// ORIGINALLY TRIED TO RETURN BLOG BUT RECEIVED ERROR THAT IT IS NOT ITERABLE
+//         return blogs?.map((blog) => ({
+//             slug: blogs.blog_id,
+//             title: blogs.title,
+//             content: blogs.content,
+//             img_path: blogs.img_path,
+//             created_at: blogs.created_at,
+//             author_id: blogs.author_id,
+//             profiles{profile_id: blogs.profile_id,
+//                 first_name: blogs.first_name,
+//                 last_name: blogs.last_name
+//             },
+//           }))
+// }
+
+
 export default async function IndividualBlogPost({ params }: { params: { slug: string } }) {
 
     // Create a Supabase client configured to use cookies
