@@ -37,7 +37,7 @@ const filteredBlogs = blogs?.filter(blog => blog.profiles.type === params.slug);
 console.log(blogs)
 console.log(filteredBlogs)
 
-    if (!blogs || blogs.length === 0) {
+    if (!filteredBlogs || filteredBlogs.length === 0) {
         return notFound();
     }
 
