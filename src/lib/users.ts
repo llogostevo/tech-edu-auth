@@ -27,10 +27,10 @@ export async function teacherCheck() {
   const { data: profiles, error } = await supabase
     .from('profiles')
     .select('type, profile_id').eq('profile_id', `${user?.id}`).eq('type', 'Teacher')
-  if (!profiles) {
-    return false
-  } else {
+  if (profiles) {
     return true
+  } else {
+    return false
   }
 
 }
